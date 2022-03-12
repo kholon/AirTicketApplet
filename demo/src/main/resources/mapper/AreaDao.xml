@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.AreaDao">
+    <select id="queryArea" resultType="com.example.demo.entity.Area">
+        SELECT  flightNo,airwaysCn,depAirdrome,depTime,arrAirdrome,arrTime,Price,Platform
+        FROM jp
+        ORDER BY Price
+        LIMIT 10
+    </select>
+    <select id="queryAreaById" parameterType="String" resultType="com.example.demo.entity.Area">
+        SELECT  flightNo,airwaysCn,depAirdrome,depTime,arrAirdrome,arrTime,Price,Platform
+        FROM jp
+        WHERE
+        depAirdrome=#{depAirdrome} AND arrAirdrome=#{arrAirdrome}
+        ORDER BY
+        Price
+    </select>
+</mapper>
